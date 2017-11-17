@@ -10,7 +10,7 @@ yum install libcap libcap-devel
 
 将程序包放到opt 上解压 
 
-cd /opt/capturer/envInstall
+cd /opt/capturer/envInstall;
 sh install.sh
 
 ## Config
