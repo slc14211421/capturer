@@ -1,4 +1,8 @@
 # capturer
+pypcap  dpkt  完成报文抓取和http 解析
+
+目前只做到了功能性开发、 高并发处理能力很差、需要找解决方案。
+
 ## Install 
 
 1、
@@ -10,13 +14,11 @@ yum install libcap libcap-devel
 
 将程序包放到opt 上解压 
 
-cd /opt/capturer/envInstall;
-sh install.sh
+cd /opt/capturer/envInstall; sh install.sh
 
 ## Config
 
-/opt/capturer/conf
-capturer.conf  配置抓包网卡
+/opt/capturer/conf/capturer.conf    配置抓包网卡
 
 ## Run
 

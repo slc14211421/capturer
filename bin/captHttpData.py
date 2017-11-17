@@ -27,7 +27,10 @@ def captData():
     pc=pcap.pcap(confdit['Ethernet'])
     pc.setfilter('tcp')
     for ptime,pdata in pc:
-        anlyCap(ptime,pdata)
+        #anlyCap(ptime,pdata)
+        mythread=commonTools.ThreadFunc(anlyCap,(ptime,pdata),anlyCap.__name__)
+        mythread.start()
+
 
 def anlyCap(ptime,pdata):
     p=dpkt.ethernet.Ethernet(pdata)
