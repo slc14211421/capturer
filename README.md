@@ -8,8 +8,6 @@ pypcap  dpkt  完成报文抓取和http 解析
 1、
 yum install libcap libcap-devel
 
-或者从os 镜像中拷贝出对应的 rpm 包安装
-
 2、
 
 将程序包放到opt 上解压 
@@ -18,7 +16,7 @@ cd /opt/capturer/envInstall; sh install.sh
 
 ## Config
 
-/opt/capturer/conf/capturer.conf    配置抓包网卡
+/opt/capturer/conf/capturer.conf    配置抓包网卡 和并发的内核数量
 
 ## Run
 
