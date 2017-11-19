@@ -10,6 +10,7 @@ import dpkt
 import logging
 import logging.config
 import  commonTools
+from multiprocessing import Process, Pool
 
 #config logging
 logging.config.fileConfig("../conf/logger.conf")
@@ -26,10 +27,15 @@ outformat="\"%s\"\t\"%s\"\t\"%s\"\t\"%s\"\t\"%s\"\t\"%s\"\t\"%s\"\t\"%s\""
 def captData():
     pc=pcap.pcap(confdit['Ethernet'])
     pc.setfilter('tcp')
+    process = Pool(2)
     for ptime,pdata in pc:
         #anlyCap(ptime,pdata)
-        mythread=commonTools.ThreadFunc(anlyCap,(ptime,pdata),anlyCap.__name__)
-        mythread.start()
+        #mythread=commonTools.ThreadFunc(anlyCap,(ptime,pdata),anlyCap.__name__)
+        #mythread.start()
+
+        process.apply_async(anlyCap,args=(ptime,pdata))
+
+
 
 
 def anlyCap(ptime,pdata):
